@@ -31,9 +31,12 @@
 			import { TeapotGeometry } from 'https://threejs.org/examples/jsm/geometries/TeapotGeometry.js';
 
 			var camera, scene, renderer;
-			var controls;
+			var controls, eventControl;
 			var ambientLight, light;
-			init(); var Cube;
+			const dragObjects = [];
+			var Cube;
+			
+			init(); 
 			animate();
 
 			function init() {
@@ -82,14 +85,13 @@
 			
 
 				// Объекты меняем тут
-										
-
 
 					//Цилиндр 
 					var geometry = new THREE.CylinderGeometry(100, 100, 200, 32);
 					var material = new THREE.MeshPhongMaterial({ color: 0xFF0000 });
 					var cilindr = new THREE.Mesh(geometry, material);
 					cilindr.position.set(-600, 350, 0);
+					dragObjects.push(cilindr);
 					scene.add(cilindr);
 
 					//Сфера
@@ -97,6 +99,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0x00FF00 });
 					var sphere = new THREE.Mesh(geometry, material);
 					sphere.position.set(-300, 350, 0);
+					dragObjects.push(sphere);
 					scene.add(sphere);
 
 					//Конус
@@ -104,6 +107,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0x00BFFF });
 					var cone = new THREE.Mesh(geometry, material);
 					cone.position.set(0, 350, 0);
+					dragObjects.push(cone);
 					scene.add(cone);
 
 					//Тетраэдр
@@ -111,6 +115,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0xDAA520 });
 					var tetra = new THREE.Mesh(geometry, material);
 					tetra.position.set(300, 300, 0);
+					dragObjects.push(tetra);
 					scene.add(tetra);
 					
 
@@ -121,6 +126,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0x0000FF });
 					var pyramid5 = new THREE.Mesh(geometry, material);
 					pyramid5.position.set(-600, 150, 250);
+					dragObjects.push(pyramid5);
 					scene.add(pyramid5);
 
 					//Призма
@@ -128,6 +134,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0xFFD700 });
 					var prism6 = new THREE.Mesh(geometry, material);
 					prism6.position.set(-300, 150, 250);
+					dragObjects.push(prism6);
 					scene.add(prism6);
 
 					//Пирамида
@@ -135,6 +142,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0xFF00FF });
 					var pyramid7 = new THREE.Mesh(geometry, material);
 					pyramid7.position.set(0, 150, 250);
+					dragObjects.push(pyramid7);
 					scene.add(pyramid7);
 
 					//Куб
@@ -142,6 +150,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0xFFFF00 });
 					var cube = new THREE.Mesh(geometry, material);
 					cube.position.set(300, 150, 250);
+					dragObjects.push(cube);
 					scene.add(cube);
 
 					//Параллелепипед
@@ -149,6 +158,7 @@
 					var material = new THREE.MeshPhongMaterial({ color: 0x800080 });
 					var box = new THREE.Mesh(geometry, material);
 					box.position.set(600, 130, 250);
+					dragObjects.push(box);
 					scene.add(box);
 
 										
@@ -157,15 +167,33 @@
 					var material = new THREE.MeshPhongMaterial( { color: 0x6A5ACD } );	
 					var teapot = new THREE.Mesh( geometry, material );
 					teapot.position.set( 550, 350, 0 ); 					
+					dragObjects.push(teapot);
+					scene.add( teapot );; 
 					
-					scene.add( teapot );
-					
-				
 
 
-					const helper = new THREE.GridHelper( 1500, 10 );
-					//helper.rotation.x = Math.PI / 2;
-					scene.add( helper );
+				var Material = new THREE.MeshPhongMaterial( { color: 0xD3D3D3, side: THREE.DoubleSide  } );
+		
+				var Geometry = new THREE.PlaneGeometry( 1200, 1200, 1, 1 );
+
+				var checkerboard = new THREE.Mesh( Geometry, Material );
+				checkerboard.position.y = - 1;
+				checkerboard.rotation.x =  Math.PI / 2;
+				scene.add( checkerboard );
+					
+				eventControl = new EventControls( [ ... dragObjects ], camera, renderer.domElement );
+				eventControl.setDraggable( render, true );              
+                eventControl.setMap ( checkerboard );
+                eventControl.setOrbitControl( controls );					
+	
+				eventControl.attachEvent( 'dragAndDrop', function () {
+   
+					//this.event.object.position.y = this.event.object.height / 2;
+					this.event.object.position.x = 
+						100*Math.round( this.event.object.position.x / 100);
+					this.event.object.position.z = 
+						100*Math.round( this.event.object.position.z / 100);                 
+				});				
 
 			}
 
