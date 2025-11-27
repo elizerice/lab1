@@ -114,7 +114,7 @@
 					var geometry = new THREE.ConeGeometry(100, 80, 3);
 					var material = new THREE.MeshPhongMaterial({ color: 0xDAA520 });
 					var tetra = new THREE.Mesh(geometry, material);
-					tetra.position.set(300, 100, 0);
+					tetra.position.set(300, 40, 0);
 					dragObjects.push(tetra);
 					scene.add(tetra);
 					
@@ -157,7 +157,7 @@
 					var geometry = new THREE.BoxGeometry(250, 150, 150);
 					var material = new THREE.MeshPhongMaterial({ color: 0x800080 });
 					var box = new THREE.Mesh(geometry, material);
-					box.position.set(600, 100, 250);
+					box.position.set(600, 75, 250);
 					dragObjects.push(box);
 					scene.add(box);
 
