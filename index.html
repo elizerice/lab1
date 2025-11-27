@@ -90,7 +90,7 @@
 					var geometry = new THREE.CylinderGeometry(100, 100, 200, 32);
 					var material = new THREE.MeshPhongMaterial({ color: 0xFF0000 });
 					var cilindr = new THREE.Mesh(geometry, material);
-					cilindr.position.set(-600, 0, 0);
+					cilindr.position.set(-600, 150, 0);
 					dragObjects.push(cilindr);
 					scene.add(cilindr);
 
@@ -98,7 +98,7 @@
 					var geometry = new THREE.SphereGeometry(100, 50, 50);
 					var material = new THREE.MeshPhongMaterial({ color: 0x00FF00 });
 					var sphere = new THREE.Mesh(geometry, material);
-					sphere.position.set(-300, 0, 0);
+					sphere.position.set(-300, 150, 0);
 					dragObjects.push(sphere);
 					scene.add(sphere);
 
@@ -106,7 +106,7 @@
 					var geometry = new THREE.ConeGeometry(100, 200, 32);
 					var material = new THREE.MeshPhongMaterial({ color: 0x00BFFF });
 					var cone = new THREE.Mesh(geometry, material);
-					cone.position.set(0, 0, 0);
+					cone.position.set(0, 150, 0);
 					dragObjects.push(cone);
 					scene.add(cone);
 
@@ -114,7 +114,7 @@
 					var geometry = new THREE.ConeGeometry(100, 80, 3);
 					var material = new THREE.MeshPhongMaterial({ color: 0xDAA520 });
 					var tetra = new THREE.Mesh(geometry, material);
-					tetra.position.set(300, 0, 0);
+					tetra.position.set(300, 150, 0);
 					dragObjects.push(tetra);
 					scene.add(tetra);
 					
@@ -125,7 +125,7 @@
 					var geometry = new THREE.ConeGeometry(100, 200, 4);
 					var material = new THREE.MeshPhongMaterial({ color: 0x0000FF });
 					var pyramid5 = new THREE.Mesh(geometry, material);
-					pyramid5.position.set(-600, 0, 250);
+					pyramid5.position.set(-600, 150, 250);
 					dragObjects.push(pyramid5);
 					scene.add(pyramid5);
 
@@ -133,7 +133,7 @@
 					var geometry = new THREE.CylinderGeometry(100, 100, 200, 3);
 					var material = new THREE.MeshPhongMaterial({ color: 0xFFD700 });
 					var prism6 = new THREE.Mesh(geometry, material);
-					prism6.position.set(-300, 0, 250);
+					prism6.position.set(-300, 150, 250);
 					dragObjects.push(prism6);
 					scene.add(prism6);
 
@@ -141,7 +141,7 @@
 					var geometry = new THREE.ConeGeometry(100, 200, 6);
 					var material = new THREE.MeshPhongMaterial({ color: 0xFF00FF });
 					var pyramid7 = new THREE.Mesh(geometry, material);
-					pyramid7.position.set(0, 0, 250);
+					pyramid7.position.set(0, 150, 250);
 					dragObjects.push(pyramid7);
 					scene.add(pyramid7);
 
@@ -149,7 +149,7 @@
 					var geometry = new THREE.BoxGeometry(200, 200, 200);
 					var material = new THREE.MeshPhongMaterial({ color: 0xFFFF00 });
 					var cube = new THREE.Mesh(geometry, material);
-					cube.position.set(300, 0, 250);
+					cube.position.set(300, 150, 250);
 					dragObjects.push(cube);
 					scene.add(cube);
 
@@ -157,7 +157,7 @@
 					var geometry = new THREE.BoxGeometry(250, 150, 150);
 					var material = new THREE.MeshPhongMaterial({ color: 0x800080 });
 					var box = new THREE.Mesh(geometry, material);
-					box.position.set(600, 0, 250);
+					box.position.set(600, 150, 250);
 					dragObjects.push(box);
 					scene.add(box);
 
@@ -166,7 +166,7 @@
 					var geometry = new TeapotGeometry( 100 );
 					var material = new THREE.MeshPhongMaterial( { color: 0x6A5ACD } );	
 					var teapot = new THREE.Mesh( geometry, material );
-					teapot.position.set( 550, 0, 0 ); 					
+					teapot.position.set( 550, 150, 0 ); 					
 					dragObjects.push(teapot);
 					scene.add( teapot );; 
 					
